@@ -33,9 +33,9 @@ const Counter = memo(function Counter({ initialCount }) {
     [initialCount]
   );
 
-  useEffect(() => {
-    setCounterChanges([{ value: initialCount, id: Math.random() * 1000 }]);
-  }, [initialCount]);
+  // useEffect(() => {
+  //   setCounterChanges([{ value: initialCount, id: Math.random() * 1000 }]);
+  // }, [initialCount]);
 
   const [counterChanges, setCounterChanges] = useState([
     { value: initialCount, id: Math.random() * 1000 },
@@ -44,7 +44,6 @@ const Counter = memo(function Counter({ initialCount }) {
   const currentCounter = counterChanges.reduce((prevCounter, counterChange) => {
     return prevCounter + counterChange.value;
   }, 0);
-  console.log(currentCounter);
 
   const handleDecrement = useCallback(function handleDecrement() {
     setCounterChanges((prevCounterChanges) => [
